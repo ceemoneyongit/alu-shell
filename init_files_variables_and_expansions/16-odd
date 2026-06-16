@@ -1,2 +1,2 @@
 #!/bin/bash
-while read line; do echo "$line"; read line; done
+nl | grep "^\s*[0-9]*[13579]\t" | cut -f2-
