@@ -1,2 +1,3 @@
 #!/bin/bash
-while read line; do echo "$line"; read trash; done
+# This script prints every other line from input starting with the first line
+while read -r line; do echo "$line"; read -r line; done

@@ -1,2 +1,13 @@
 #!/bin/bash
-echo $(printf '%o' $(($(echo $WATER|tr water 01234)+$(echo $STIR|tr stir. 01234)))|tr 01234567 bestchol)
+# This script adds WATER (base water) and STIR (base stir) and prints result in base bestchol
+echo "$WATER" "$STIR" | python3 -c "
+import sys
+w='water'; s='stir'; b='bestchol'
+water,stir=input().split()
+n1=sum(w.index(c)*len(w)**i for i,c in enumerate(reversed(water)))
+n2=sum(s.index(c)*len(s)**i for i,c in enumerate(reversed(stir)))
+n=n1+n2
+r=''
+while n:r=b[n%len(b)]+r;n//=len(b)
+print(r or b[0])
+"
