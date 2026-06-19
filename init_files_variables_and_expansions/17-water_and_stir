@@ -1,12 +1,2 @@
 #!/bin/bash
-echo "$WATER" "$STIR" | python3 -c "
-import sys
-w='water';s='stir.';b='bestchol'
-water,stir=input().split()
-n1=sum(w.index(c)*len(w)**i for i,c in enumerate(reversed(water)))
-n2=sum(s.index(c)*len(s)**i for i,c in enumerate(reversed(stir)))
-n=n1+n2
-r=''
-while n:r=b[n%len(b)]+r;n//=len(b)
-print(r or b[0])
-"
+python3 -c "import os;w='water';s='stir.';b='bestchol';W=os.environ['WATER'];S=os.environ['STIR'];n=sum(w.index(c)*len(w)**i for i,c in enumerate(reversed(W)))+sum(s.index(c)*len(s)**i for i,c in enumerate(reversed(S)));r='';exec("while n:\\n r=b[n%len(b)]+r\\n n//=len(b)");print(r)"
