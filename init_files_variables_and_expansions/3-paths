@@ -1,3 +1,2 @@
 #!/bin/bash
-# This script counts the number of directories in PATH
-echo "$PATH" | tr ':' '\n' | wc -l
+echo "$PATH" | tr ":" "\n" | wc -l

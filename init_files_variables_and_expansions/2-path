@@ -1,3 +1,2 @@
 #!/bin/bash
-# This script adds /action to the end of PATH
 export PATH=$PATH:/action
